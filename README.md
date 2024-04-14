@@ -32,8 +32,10 @@ export async function POST(request: Request) {
 
 ```tsx
 import { comments } from '../data';
+
+//Get Request
 export async function GET(
-  request: Request,
+  _request: Request,
   {
     params,
   }: {
@@ -48,4 +50,6 @@ export async function GET(
 
   return Response.json(comment);
 }
+
+// Patch Request
 ```
