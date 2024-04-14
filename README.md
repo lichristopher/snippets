@@ -27,3 +27,25 @@ export async function POST(request: Request) {
   });
 }
 ```
+
+### Dynamic Route handlers in next js
+
+```tsx
+import { comments } from '../data';
+export async function GET(
+  request: Request,
+  {
+    params,
+  }: {
+    params: {
+      id: string;
+    };
+  }
+) {
+  const comment = comments.find((comment) => {
+    return comment.id === parseInt(params.id);
+  });
+
+  return Response.json(comment);
+}
+```
