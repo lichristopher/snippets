@@ -90,3 +90,17 @@ export async function DELETE(
   return Response.json(deletedComment);
 }
 ```
+
+```tsx
+/// Get Request Handler for Dynamic Routes with Search query
+export async function GET(request: NextRequest) {
+  const searchParams = request.nextUrl.searchParams;
+  const query = searchParams.get('query');
+  const filteredComments = query
+    ? comments.filter((comment) => {
+        return comment.text.includes(query);
+      })
+    : comments;
+  return Response.json(filteredComments);
+}
+```
